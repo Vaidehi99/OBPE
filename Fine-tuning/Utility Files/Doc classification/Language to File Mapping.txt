@@ -1,0 +1,7 @@
+English  : doc_classification_preprocessor_for_chunked_english.py
+Oriya    : doc_classification_preprocessor.py
+Panjabi  : doc_classification_preprocessor.py
+Gujrati  : doc_classification_preprocessor_for_chunked.py
+Bengali  : doc_classification_preprocessor_for_chunked.py
+Hindi 	 : doc_classification_preprocessor.py
+Assamese : doc_classification_preprocessor.py
