@@ -1,0 +1,14 @@
+agriculture_set3
+agriculture_set6
+agriculture_set8
+agriculture_set9
+health_set08
+health_set12
+tourism_set01
+tourism_set08
+tourism_set09
+tourism_set11
+tourism_set13
+tourism_set20
+tourism_set24
+tourism_set25
