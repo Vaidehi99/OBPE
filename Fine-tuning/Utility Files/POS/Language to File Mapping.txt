@@ -1,0 +1,7 @@
+English  : pos_preprocessor_for_chunked_english.py
+Oriya    : pos_preprocessor_oriya.py
+Panjabi  : pos_preprocessor.py
+Gujrati  : pos_preprocessor_for_chunked.py
+Bengali  : pos_preprocessor_for_chunked.py
+Hindi 	 : pos_preprocessor.py
+Assamese : pos_preprocessor.py
