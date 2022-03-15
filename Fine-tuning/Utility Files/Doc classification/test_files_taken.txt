@@ -1,0 +1,7 @@
+health_set08
+entertainment_set11
+health_set12
+agriculture_set9
+entertainment_set17
+tourism_set25
+agriculture_set7
