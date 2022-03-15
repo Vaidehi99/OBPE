@@ -20,43 +20,43 @@ Also note that the pretraining has been done using Google Cloud TPUs so some of 
 To create OBPE tokenizer, run the follwoing three scripts sequentially
 
 ```shell
-python3 get_vocab.py \
-  --mono_files ./l1_monolingual_data.txt ./l2_monolingual_data.txt 
+python3 get_vocab.py\
+  --mono_files ./l1_monolingual_data.txt ./l2_monolingual_data.txt\ 
   --output_files vocabs/l1.pkl vocabs/l2.pkl
 ```
 ```shell
-python3 tokenizer.py \ 
-  --vocab_files vocabs/l1.pkl vocabs/l2.pkl \
-  --use_vocab \
-  --output_dir models/l1_l2_p_-3 \
-  --vocab_size 30000 \
-  --model bpe \
-  --eow_suffix "</w>" \ 
-  --n_HRL 1 \
-  --max_tok \
-  --alpha 0.5 \ 
-  --overlap mean \
+python3 tokenizer.py\ 
+  --vocab_files vocabs/l1.pkl vocabs/l2.pkl\
+  --use_vocab\
+  --output_dir models/l1_l2_p_-3\
+  --vocab_size 30000\
+  --model bpe\
+  --eow_suffix "</w>"\ 
+  --n_HRL 1\
+  --max_tok\
+  --alpha 0.5\ 
+  --overlap mean\
   --p -3
 ```
 OR
 ```shell
-python3 tokenizer.py \ 
-  --vocab_files vocabs/l1.pkl vocabs/l2.pkl \
-  --use_vocab \
-  --output_dir models/l1_l2_min \
-  --vocab_size 30000 \
-  --model bpe \
-  --eow_suffix "</w>" \
-  --n_HRL 1 \
-  --max_tok \
-  --alpha 0.5 \
+python3 tokenizer.py\ 
+  --vocab_files vocabs/l1.pkl vocabs/l2.pkl\
+  --use_vocab\
+  --output_dir models/l1_l2_min\
+  --vocab_size 30000\
+  --model bpe\
+  --eow_suffix "</w>"\
+  --n_HRL 1\
+  --max_tok\
+  --alpha 0.5\
   --overlap min 
 ```
 ```shell
-python3 generate_json_from_model.py \
-  --vocab models/l1_l2_min/vocab.json \
-  --merges models/l1_l2_min/merges.txt \
-  --model bpe \
+python3 generate_json_from_model.py\
+  --vocab models/l1_l2_min/vocab.json\
+  --merges models/l1_l2_min/merges.txt\
+  --model bpe\
   --outfile tokenizers/l1_l2_min_tokenizer.json
 ```
 Use this json file as input to create_pretraining_data_ENS_with_diff_tokenizer.py while creating MLM pretraining data
@@ -74,16 +74,16 @@ conda install tensorflow==2.3.0
 (b) Run the following command from the directory "BERT Pretraining and Preprocessing/Preprocessing Code" to create the preprocessing code. Refer to the [Google BERT Repo](https://github.com/google-research/bert) for other information.
 
 ```shell
-python3 create_pretraining_data_ENS_with_diff_tokenizer.py \
-  --input_file=./monolingual_data.txt \
-  --output_file=/tmp/tf_examples.tfrecord \
+python3 create_pretraining_data_ENS_with_diff_tokenizer.py\
+  --input_file=./monolingual_data.txt\
+  --output_file=/tmp/tf_examples.tfrecord\
   --json_vocab_file=$BERT_BASE_DIR/tokenizer.json
-  --do_lower_case=False \
-  --max_seq_length=128 \
-  --max_predictions_per_seq=20 \
-  --do_whole_word_mask=False \
-  --masked_lm_prob=0.15 \
-  --random_seed=12345 \
+  --do_lower_case=False\
+  --max_seq_length=128\
+  --max_predictions_per_seq=20\
+  --do_whole_word_mask=False\
+  --masked_lm_prob=0.15\
+  --random_seed=12345\
   --dupe_factor=2
 
 2. Pre-training:<br>
@@ -98,24 +98,24 @@ conda install -c conda-forge tensorflow==1.14
 Run the following command for pretraining:
 
 ```shell
-python run_pretraining_without_NSP.py \
-  --input_file=/tmp/tf_examples.tfrecord \
-  --output_dir=/tmp/pretraining_output \
-  --do_train=True \
-  --do_eval=True \
-  --bert_config_file=$BERT_CONFIG_DIR/bert_config.json \
-  --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt \
-  --train_batch_size=32 \
-  --max_seq_length=128 \
-  --max_predictions_per_seq=20 \
-  --num_train_steps=20 \
-  --num_warmup_steps=10 \
-  --learning_rate=2e-5 \
-  --save_checkpoint_steps=10 \
-  --iterations_per_loop=5 \
-  --use_tpu=True \
-  --tpu_name=node-1 \
-  --tpu_zone=zone-1 \
+python run_pretraining_without_NSP.py\
+  --input_file=/tmp/tf_examples.tfrecord\
+  --output_dir=/tmp/pretraining_output\
+  --do_train=True\
+  --do_eval=True\
+  --bert_config_file=$BERT_CONFIG_DIR/bert_config.json\
+  --init_checkpoint=$BERT_BASE_DIR/bert_model.ckpt\
+  --train_batch_size=32\
+  --max_seq_length=128\
+  --max_predictions_per_seq=20\
+  --num_train_steps=20\
+  --num_warmup_steps=10\
+  --learning_rate=2e-5\
+  --save_checkpoint_steps=10\
+  --iterations_per_loop=5\
+  --use_tpu=True\
+  --tpu_name=node-1\
+  --tpu_zone=zone-1\
   --num_tpu_cores=8 
 ```
 
