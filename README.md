@@ -77,7 +77,7 @@ conda install tensorflow==2.3.0
 python3 create_pretraining_data_ENS_with_diff_tokenizer.py\
   --input_file=./monolingual_data.txt\
   --output_file=/tmp/tf_examples.tfrecord\
-  --json_vocab_file=$BERT_BASE_DIR/tokenizer.json
+  --json_vocab_file=$BERT_BASE_DIR/tokenizer.json\
   --do_lower_case=False\
   --max_seq_length=128\
   --max_predictions_per_seq=20\
@@ -85,7 +85,7 @@ python3 create_pretraining_data_ENS_with_diff_tokenizer.py\
   --masked_lm_prob=0.15\
   --random_seed=12345\
   --dupe_factor=2
-
+```
 2. Pre-training:<br>
 (a) The BERT Pretraining code used needs to run in Tensorflow v1 (same as the original Google BERT). Create a new conda environment and set it up as follows:
 ```shell
