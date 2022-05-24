@@ -174,10 +174,18 @@ python3 transliterate_monolingual.py\
 
 If you use the code in this repo, please cite our paper `\cite{patil2022overlap}`.
 ```
-@article{patil2022overlap,
-  title={Overlap-based Vocabulary Generation Improves Cross-lingual Transfer Among Related Languages},
-  author={Patil, Vaidehi and Talukdar, Partha and Sarawagi, Sunita},
-  journal={arXiv preprint arXiv:2203.01976},
-  year={2022}
+@inproceedings{patil-etal-2022-overlap,
+    title = "Overlap-based Vocabulary Generation Improves Cross-lingual Transfer Among Related Languages",
+    author = "Patil, Vaidehi  and
+      Talukdar, Partha  and
+      Sarawagi, Sunita",
+    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.acl-long.18",
+    pages = "219--233",
+    abstract = "Pre-trained multilingual language models such as mBERT and XLM-R have demonstrated great potential for zero-shot cross-lingual transfer to low web-resource languages (LRL). However, due to limited model capacity, the large difference in the sizes of available monolingual corpora between high web-resource languages (HRL) and LRLs does not provide enough scope of co-embedding the LRL with the HRL, thereby affecting the downstream task performance of LRLs. In this paper, we argue that relatedness among languages in a language family along the dimension of lexical overlap may be leveraged to overcome some of the corpora limitations of LRLs. We propose Overlap BPE (OBPE), a simple yet effective modification to the BPE vocabulary generation algorithm which enhances overlap across related languages. Through extensive experiments on multiple NLP tasks and datasets, we observe that OBPE generates a vocabulary that increases the representation of LRLs via tokens shared with HRLs. This results in improved zero-shot transfer from related HRLs to LRLs without reducing HRL representation and accuracy. Unlike previous studies that dismissed the importance of token-overlap, we show that in the low-resource related language setting, token overlap matters. Synthetically reducing the overlap to zero can cause as much as a four-fold drop in zero-shot transfer accuracy.",
 }
 ```
