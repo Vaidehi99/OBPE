@@ -172,7 +172,7 @@ python3 transliterate_monolingual.py\
 
 # Paper
 
-If you use the code in this repo, please cite our paper `\cite{patil2022overlap}`.
+If you use the code in this repo, please cite our paper `\cite{patil-etal-2022-overlap}`.
 ```
 @inproceedings{patil-etal-2022-overlap,
     title = "Overlap-based Vocabulary Generation Improves Cross-lingual Transfer Among Related Languages",
